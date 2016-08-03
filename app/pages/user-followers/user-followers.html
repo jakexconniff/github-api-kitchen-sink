@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ login }}'s Followers</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<button ion-item *ngFor="let follower of followers">
+  <ion-avatar item-left>
+    <img [src]="follower.avatar_url">
+  </ion-avatar>
+  {{ follower.login }}
+</button>
+</ion-content>
