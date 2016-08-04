@@ -5,8 +5,12 @@ import { User }       from '../../models/user';
 
 @Injectable()
 export class GithubUsers {
+  githubUser: any = null;
   githubUsers: any = null;
   githubFollowers: any = null;
+  userFollowers = 0;
+  pageNum: any = 1;
+  perPage = 50;
 
   constructor(public http: Http) {
   }
@@ -28,7 +32,6 @@ export class GithubUsers {
           // we've got back the raw data, now generate the core schedule data
           // and save the data for later reference
           this.githubUsers = users;
-          console.log(this.githubUsers);
           resolve(this.githubUsers);
         });
     });
@@ -42,14 +45,23 @@ export class GithubUsers {
       this.http.get(`https://api.github.com/users/${login}`)
         .map(res => <User>(res.json()))
         .subscribe(user => {
+          this.userFollowers = user.followers;
+          this.githubUser = user;
           resolve(user);
         });
     });
   }
 
   loadFollowers(login: String) {
+    for (var i = 0;this.userFollowers > 0; this.userFollowers -= this.perPage, this.pageNum++) {
+      console.log(this.userFollowers);
+      console.log(this.pageNum);
+    }
+  }
+
+  loadFollowing(login: String) {
     return new Promise<User>(resolve => {
-      this.http.get(`https://api.github.com/users/${login}/followers`)
+      this.http.get(`https://api.github.com/users/${login}/following`)
         .map(res => <User>(res.json()))
         .subscribe(followers => {
           resolve(followers);

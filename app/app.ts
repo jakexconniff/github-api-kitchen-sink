@@ -1,12 +1,12 @@
 import {Component, ViewChild} from '@angular/core';
 import {ionicBootstrap, Platform, MenuController, Nav} from 'ionic-angular';
-import {StatusBar} from 'ionic-native';
-import {UsersPage}         from './pages/users/users';
-import {ReposPage}         from './pages/repos/repos';
-import {OrganizationsPage}  from './pages/organizations/organizations';
-import { UserFollowersPage } from './pages/user-followers/user-followers'; 
-import { GithubUsers }     from './providers/github-users/github-users';
-import { GithubFollowers } from './providers/github-followers/github-followers';
+import {StatusBar}            from  'ionic-native';
+import {UsersPage}            from './pages/users/users';
+import {ReposPage}            from './pages/repos/repos';
+import {OrganizationsPage}    from './pages/organizations/organizations';
+import { UserFollowersPage }  from './pages/user-followers/user-followers';
+import { GithubUsers }        from './providers/github-users/github-users';
+import { GithubFollowers }    from './providers/github-followers/github-followers';
 
 @Component({
   templateUrl: 'build/app.html',
@@ -28,8 +28,7 @@ class MyApp {
     this.pages = [
       { title: 'Users',         component: UsersPage },
       { title: 'Repos',         component: ReposPage },
-      { title: 'Organizations', component: OrganizationsPage },
-      { title: 'User Followers', component: UserFollowersPage }
+      { title: 'Organizations', component: OrganizationsPage }
     ];
   }
 

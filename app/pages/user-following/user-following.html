@@ -3,15 +3,15 @@
     <button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{ login }}'s Followers</ion-title>
+    <ion-title>{{ login }}'s Following</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-<button ion-item *ngFor="let follower of followers" (click)="gotoDetails($event, follower.login)">
+<button ion-item *ngFor="let followee of following" (click)="gotoDetails($event, followee.login)">
   <ion-avatar item-left>
-    <img [src]="follower.avatar_url">
+    <img [src]="followee.avatar_url">
   </ion-avatar>
-  {{ follower.login }}
+  {{ followee.login }}
 </button>
 </ion-content>

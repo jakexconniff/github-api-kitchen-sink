@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { GithubUsers }              from '../../providers/github-users/github-users';
 import { GithubFollowers }          from '../../providers/github-followers/github-followers';
 import { UserFollowersPage }        from '../user-followers/user-followers';
+import { UserFollowingPage }        from '../user-following/user-following';
 import { User }                     from '../../models/user';
 
 @Component({
@@ -33,6 +34,12 @@ export class UserDetailsPage {
 
   gotoFollowers(event, login) {
     this.nav.push(UserFollowersPage, {
+      login: login
+    });
+  }
+
+  gotoFollowing(event, login) {
+    this.nav.push(UserFollowingPage, {
       login: login
     });
   }

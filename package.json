@@ -27,8 +27,8 @@
     "tslint-ionic-rules": "^0.0.3",
     "run-sequence": "1.1.5"
   },
-  "name": "githubionic",
-  "description": "githubIonic: An Ionic project",
+  "name": "githubclone",
+  "description": "Github Clone",
   "cordovaPlugins": [
     "cordova-plugin-device",
     "cordova-plugin-console",
