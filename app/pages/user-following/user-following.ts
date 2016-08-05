@@ -17,7 +17,6 @@ export class UserFollowingPage {
     githubUsers.loadFollowing(this.login)
       .then( following => {
         this.following = following;
-        console.log(this.following);
       })
   }
   gotoDetails(event, login) {

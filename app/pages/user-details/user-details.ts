@@ -1,7 +1,6 @@
 import { Component }                from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { GithubUsers }              from '../../providers/github-users/github-users';
-import { GithubFollowers }          from '../../providers/github-followers/github-followers';
 import { UserFollowersPage }        from '../user-followers/user-followers';
 import { UserFollowingPage }        from '../user-following/user-following';
 import { User }                     from '../../models/user';
@@ -14,7 +13,7 @@ export class UserDetailsPage {
   followers: Array<User>;
   login: string;
 
-  constructor(public nav: NavController, navParams: NavParams, githubUsers: GithubUsers, private githubFollowers: GithubFollowers) {
+  constructor(public nav: NavController, navParams: NavParams, githubUsers: GithubUsers) {
     // Retrieve the login from the navigation parameters
     this.login = navParams.get('login');
 
@@ -30,6 +29,12 @@ export class UserDetailsPage {
       .then(followers => this.followers = followers);*/
 
 
+  }
+
+  gotoDetails(event, login) {
+    this.nav.push(UserDetailsPage, {
+      login: login
+    });
   }
 
   gotoFollowers(event, login) {

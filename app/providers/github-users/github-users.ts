@@ -53,18 +53,21 @@ export class GithubUsers {
   }
 
   loadFollowers(login: String) {
-    for (var i = 0;this.userFollowers > 0; this.userFollowers -= this.perPage, this.pageNum++) {
-      console.log(this.userFollowers);
-      console.log(this.pageNum);
-    }
+    return new Promise<User>(resolve => {
+      this.http.get(`https://api.github.com/users/${login}/followers`)
+        .map(res => <User>(res.json()))
+        .subscribe(followers => {
+          resolve(followers);
+        });
+    });
   }
 
   loadFollowing(login: String) {
     return new Promise<User>(resolve => {
       this.http.get(`https://api.github.com/users/${login}/following`)
         .map(res => <User>(res.json()))
-        .subscribe(followers => {
-          resolve(followers);
+        .subscribe(following => {
+          resolve(following);
         });
     });
   }

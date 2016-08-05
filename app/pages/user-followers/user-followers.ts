@@ -16,7 +16,7 @@ export class UserFollowersPage {
     this.login = navParams.get('login');
 
     githubUsers.loadFollowers(this.login)
-      .then( followers => {
+      .then(followers => {
         this.followers = followers;
       })
   }
