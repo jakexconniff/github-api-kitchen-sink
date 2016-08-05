@@ -1,7 +1,7 @@
 // User model based on the structure of github api at
 // https://api.github.com/users/{username}/repos
 export class Repo {
-"id": 61835360,
+    "id": number;
     "name": string;
     "full_name": string;
     "owner": {
